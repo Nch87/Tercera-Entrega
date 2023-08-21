@@ -16,11 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from Proyecto3.views import * # con * llamamos a todos los def de views
+from AppCoder.views import alta_cliente
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("saludando/", saludar),
-    path("saludo/<nombre>", saludo_con_nombre),
-    path("probandohtml", probandohtml),
+    path("alta_cliente/", alta_cliente),
 ]
