@@ -15,4 +15,17 @@ def alta_cliente(request):
     respuesta=f"Nuevo Cliente: {nombre_cliente} - {email_cliente}"
     return HttpResponse(respuesta)
 
+def inicio(request):
+    return render(request,"AppCoder/inicio.html")
 
+def cliente(request):
+    return render(request,"AppCoder/cliente.html")
+
+def producto(request):
+    return render(request,"AppCoder/productos.html")
+
+def categoria(request):
+    return render(request,"AppCoder/categoria.html")
+
+def pedidos(request):
+    return render(request,"AppCoder/pedidos.html")
