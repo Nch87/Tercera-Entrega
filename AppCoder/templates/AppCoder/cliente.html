@@ -3,9 +3,19 @@
 {% load static %}
 
 {% block titulo %}
-Bienvenido
+Formulario Cliente
 {% endblock %}
 
 {% block contenido %}
-<h1>Registro</h1>
+  <h2>Formulario</h2>
+  <form action="{% url 'cliente' %}"  method="POST"> {% csrf_token %}
+    <table>
+      {{ formulario.as_table }}
+    </table>
+    
+      <input type="submit" value="Guardar Registro">
+    
+  <form/> 
+
+  <h3>{{ mensaje }}</h3>
 {% endblock %}

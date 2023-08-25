@@ -3,15 +3,16 @@
 {% load static %}
 
 {% block titulo %}
-Formulario Productos
+Formulario Proveedores
 {% endblock %}
 
 {% block contenido %}
   <h2>Formulario</h2>
-  <form action="{% url 'Productos' %}"  method="POST"> {% csrf_token %}
-    <table>
+  <form action="{% url 'Proveedores' %}"  method="POST"> {% csrf_token %}
+       
+      <table>
       {{ formulario.as_table }}
-    </table>
+      </table>
 
       <input type="submit" value="Guardar Registro">
     

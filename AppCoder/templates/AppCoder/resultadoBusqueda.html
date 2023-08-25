@@ -3,9 +3,11 @@
 {% load static %}
 
 {% block titulo %}
-Categoria
+Resultado Buesqueda Clientes
 {% endblock %}
 
 {% block contenido %}
-<h1>Nuestras Categorias</h1>
+<form action="{% url 'buscar' %}" method="GET">
+
+
 {% endblock %}

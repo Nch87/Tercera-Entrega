@@ -4,21 +4,24 @@ from django.db import models
 
 class Cliente(models.Model):
     nombre = models.CharField(max_length=100)
+    apellido = models.CharField(max_length=100)
+    telefono = models.CharField(max_length=20)
     email = models.EmailField()
     direccion = models.TextField()
 
-class Categoria(models.Model):
+class Proveedores(models.Model):
     nombre = models.CharField(max_length=100)
-    descripcion = models.TextField()
+    direccion = models.CharField(max_length=200)
+    telefono = models.CharField(max_length=20)
 
 class Producto(models.Model):
     nombre = models.CharField(max_length=100)
     descripcion = models.TextField()
     precio = models.DecimalField(max_digits=8, decimal_places=2)
-    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
+    
 
-class Pedido(models.Model):
-    fecha = models.DateField()
-    productos = models.ManyToManyField(Producto)
-    total = models.DecimalField(max_digits=8, decimal_places=2)
-    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+class Vendedor(models.Model):
+    nombre = models.CharField(max_length=100)
+    direccion = models.CharField(max_length=200)
+    telefono = models.CharField(max_length=20)
+    legajo = models.CharField(max_length=10)
