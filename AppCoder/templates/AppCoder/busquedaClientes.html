@@ -3,9 +3,17 @@
 {% load static %}
 
 {% block titulo %}
-Buesqueda Clientes
+Busqueda Clientes
 {% endblock %}
 
 {% block contenido %}
-<h2>Resultados</h2>
+<form action="{% url 'buscar' %}" method="GET">
+    
+    <input type="number" name="dni" id="dni" placeholder="Ingrese DNI">
+
+    <input type="submit" value="Buscar Cliente">
+
+</form>
+<h2>{{ mensaje }}</h2>
+
 {% endblock %}

@@ -7,7 +7,17 @@ Resultado Buesqueda Clientes
 {% endblock %}
 
 {% block contenido %}
-<form action="{% url 'buscar' %}" method="GET">
 
+{% if cliente %}
+    <h1>Resultado</h1>
+    {% for cliente in cliente %}
+
+        <h3>{{ cliente.nombre }} - {{ cliente.apellido }}</h3>
+
+    {% endfor %}
+{% else %}
+    <h1>Cliente NO EXISTE</h1>
+    
+{% endif %}    
 
 {% endblock %}

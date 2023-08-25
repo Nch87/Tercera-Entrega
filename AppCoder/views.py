@@ -6,16 +6,15 @@ from .forms import ClienteForm, ProductoForm, ProveedorForm, VendedorForm
 
 # Create your views here.
 
-def alta_cliente(request):
-
-    nombre_cliente="Ezequiel"
-    email_cliente="eze@gmail.com"
-    direccion_cliente="Calle Falsa 123"
-    print("Alta Cliente")
-    cliente= Cliente(nombre=nombre_cliente,email=email_cliente,direccion=direccion_cliente)
-    cliente.save()
-    respuesta=f"Nuevo Cliente: {nombre_cliente} - {email_cliente}"
-    return HttpResponse(respuesta)
+#def alta_cliente(request):
+#    nombre_cliente="Ezequiel"
+#   email_cliente="eze@gmail.com"
+#    direccion_cliente="Calle Falsa 123"
+#   print("Alta Cliente")
+#    cliente= Cliente(nombre=nombre_cliente,=email_cliente,email=email_cliente,direccion=direccion_cliente)
+#    cliente.save()
+#    respuesta=f"Nuevo Cliente: {nombre_cliente} - {email_cliente}"
+#    return HttpResponse(respuesta)
 
 def inicio(request):
     return render(request,"AppCoder/inicio.html")
@@ -27,10 +26,11 @@ def cliente(request):
             info=form.cleaned_data
             nombre_cli=info["nombre"]
             apellido_cli=info["apellido"]
+            dni_cli=info["dni"]
             telefono_cli=info["telefono"]
             email_cli=info["email"]
             direccion_cli=info["direccion"]
-            cliente=Cliente(nombre=nombre_cli,email=email_cli,direccion=direccion_cli,apellido=apellido_cli,telefono=telefono_cli)
+            cliente=Cliente(nombre=nombre_cli,apellido=apellido_cli,dni=dni_cli,email=email_cli,direccion=direccion_cli,telefono=telefono_cli)
             cliente.save()
             formulario_cliente=ClienteForm()
             return render(request,"AppCoder/cliente.html", {"mensaje":"Cliente Creado", "formulario": formulario_cliente})
@@ -96,4 +96,9 @@ def busquedaClientes(request):
     return render(request,"AppCoder/busquedaClientes.html")
 
 def buscar(request):
-    pass          
+    dni=request.GET["dni"]
+    if dni!="":
+        cliente=Cliente.objects.filter(dni=dni)
+        return render(request, "AppCoder/resultadoBusqueda.html",{"cliente":cliente})
+    else:
+        return render(request,"AppCoder/busquedaClientes.html", {"mensaje":"No se ingresaron Datos"})
