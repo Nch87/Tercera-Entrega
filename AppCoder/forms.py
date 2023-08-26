@@ -24,6 +24,6 @@ class ProveedorForm(forms.Form):
 
 class VendedorForm(forms.Form):
     nombre = forms.CharField(max_length=100)
-    direccion = forms.CharField(max_length=200)
+    apellido = forms.CharField(max_length=200)
     telefono = forms.CharField(max_length=20)
     legajo = forms.CharField(max_length=10)

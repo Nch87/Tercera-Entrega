@@ -23,6 +23,6 @@ class Producto(models.Model):
 
 class Vendedor(models.Model):
     nombre = models.CharField(max_length=100)
-    direccion = models.CharField(max_length=200)
+    apellido = models.CharField(max_length=200)
     telefono = models.CharField(max_length=20)
     legajo = models.CharField(max_length=10)

@@ -63,10 +63,10 @@ def vendedor(request):
         if form.is_valid():
             info=form.cleaned_data
             nombre =info["nombre"]
-            direccion = info["direccion"]
+            apellido = info["apellido"]
             telefono = info["telefono"] 
             legajo = info["legajo"]
-            vendedor=Vendedor(nombre=nombre,direccion=direccion,telefono=telefono,legajo=legajo)
+            vendedor=Vendedor(nombre=nombre,apellido=apellido,telefono=telefono,legajo=legajo)
             vendedor.save()
             formulario_vendedor=VendedorForm()
             return render(request,"AppCoder/vendedores.html", {"mensaje":"Vendedor Creado", "formulario": formulario_vendedor})
